@@ -5,7 +5,7 @@ call pathogen#runtime_append_all_bundles()
 scriptencoding utf-8
 
 " Use zsh.
-set shell=zsh
+set shell=bash
 
 " Enable filetype-specific indenting, syntax, and plugins
 filetype plugin indent on
@@ -23,7 +23,7 @@ set autoread
 " Explicitly set 256 color support
 " set t_Co=256
 
-colorscheme twilight " github256 
+colorscheme twilight
 
 " TEXT SETTINGS
 
