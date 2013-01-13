@@ -76,3 +76,6 @@
 [submodule "bundle/vim-markdown-preview"]
 	path = bundle/vim-markdown-preview
 	url = git://github.com/nelstrom/vim-markdown-preview.git
+[submodule "bundle/vim-tidy-up"]
+	path = bundle/vim-tidy-up
+	url = git@github.com:mstahl/vim-tidy-up.git

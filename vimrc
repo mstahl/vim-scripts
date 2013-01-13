@@ -23,7 +23,13 @@ set autoread
 " Explicitly set 256 color support
 " set t_Co=256
 
-colorscheme twilight
+if has("gui_running")
+  colorscheme solarized
+  call togglebg#map("<F5>")
+else
+  colorscheme twilight
+endif
+set background=dark
 
 " TEXT SETTINGS
 
@@ -164,6 +170,10 @@ let g:clj_dynamic_highlighting = 1
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
 let NERDSpaceDelims = 1
+let g:NERDCustomDelimiters = {
+  \'haskell': {'left': '--', 'leftAlt': '{-', 'rightAlt': '-}'},
+  \'spice': {'left': '*'}
+\}
 
 " NeoComplCache
 " let g:NeoComplCache_EnableAtStartup=1
@@ -199,3 +209,5 @@ augroup END
 " Show invisibles"
 set list
 
+" Testing an debugging vim stuff
+map <F5> :source ~/.vim/bundle/vim-tidy-up/plugin/vim-tidy-up.vim<CR>
