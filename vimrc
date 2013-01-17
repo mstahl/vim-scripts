@@ -165,6 +165,10 @@ let g:clj_paren_rainbow = 1
 " Auto added used namespaces, generally be awesome
 let g:clj_dynamic_highlighting = 1
 
+" ConqueTerm
+let g:ConqueTerm_CWInsert      = 1
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_CloseOnEnd    = 1
 
 " NERDCommenter
 let NERDDefaultNesting = 0
@@ -209,5 +213,13 @@ augroup END
 " Show invisibles"
 set list
 
-" Testing an debugging vim stuff
-map <F5> :source ~/.vim/bundle/vim-tidy-up/plugin/vim-tidy-up.vim<CR>
+" Default to case-insensitive search
+set smartcase
+
+" My extra special key macros ================================================
+
+" Remove trailing whitespace
+vmap ,ww :s/\s*$//<CR>
+" Open a ConqueTerm
+nmap ,tv :ConqueTermVSplit bash -l<CR>
+nmap ,ts :ConqueTermSplit bash -l<CR>
