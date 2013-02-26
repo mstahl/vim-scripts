@@ -223,9 +223,3 @@ vmap ,ww :s/\s*$//<CR>
 " Open a ConqueTerm
 nmap ,tv :ConqueTermVSplit bash -l<CR>
 nmap ,ts :ConqueTermSplit bash -l<CR>
-
-" My settings
-if has('gui_running')
-  set guifont=Inconsolata:h18
-  set lines=49 columns=178
-endif

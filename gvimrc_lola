@@ -1,0 +1,4 @@
+if has('gui_running')
+  set guifont=Inconsolata:h18
+  set lines=49 columns=178
+endif
