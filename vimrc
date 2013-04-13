@@ -223,3 +223,7 @@ vmap ,ww :s/\s*$//<CR>
 " Open a ConqueTerm
 nmap ,tv :ConqueTermVSplit bash -l<CR>
 nmap ,ts :ConqueTermSplit bash -l<CR>
+
+" MOAR AUTOCOMMANDS
+
+autocmd FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 expandtab
