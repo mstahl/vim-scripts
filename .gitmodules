@@ -79,3 +79,6 @@
 [submodule "bundle/vim-tidy-up"]
 	path = bundle/vim-tidy-up
 	url = git@github.com:mstahl/vim-tidy-up.git
+[submodule "bundle/vim-golang"]
+	path = bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang.git
