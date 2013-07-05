@@ -79,3 +79,12 @@
 [submodule "bundle/vim-tidy-up"]
 	path = bundle/vim-tidy-up
 	url = git@github.com:mstahl/vim-tidy-up.git
+[submodule "bundle/vim-golang"]
+	path = bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "colors/vim-colors-solarized.vim"]
+	path = colors/vim-colors-solarized.vim
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
