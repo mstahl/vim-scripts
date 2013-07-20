@@ -1,2 +1,2 @@
 " Set the guifont
-set guifont=Courier\ 10\ Pitch:h16
+set guifont=Ubuntu\ Mono\ 14
