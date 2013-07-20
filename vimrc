@@ -4,7 +4,7 @@ call pathogen#runtime_append_all_bundles()
 " UTF-8 All the way
 scriptencoding utf-8
 
-" Use zsh.
+" Use bash.
 set shell=bash
 
 " Enable filetype-specific indenting, syntax, and plugins
@@ -227,3 +227,5 @@ nmap ,ts :ConqueTermSplit bash -l<CR>
 " MOAR AUTOCOMMANDS
 
 autocmd FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 expandtab
+autocmd FileType text setlocal wrap linebreak nolist
+autocmd FileType markdown setlocal wrap linebreak nolist
