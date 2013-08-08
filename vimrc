@@ -218,14 +218,30 @@ set smartcase
 
 " My extra special key macros ================================================
 
+function! Headerify()
+  call s:CommentLinesMinimal(line("."))
+endfunction
+
 " Remove trailing whitespace
 vmap ,ww :s/\s*$//<CR>
 " Open a ConqueTerm
 nmap ,tv :ConqueTermVSplit bash -l<CR>
 nmap ,ts :ConqueTermSplit bash -l<CR>
+nmap ,H  :ruby headerify()<CR>
+imap <C-h> <esc>:ruby headerify()<CR>o
 
 " MOAR AUTOCOMMANDS
 
 autocmd FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 expandtab
 autocmd FileType text setlocal wrap linebreak nolist
 autocmd FileType markdown setlocal wrap linebreak nolist
+
+function! RubyInfo()
+  ruby << EOF
+    puts RUBY_VERSION
+    puts RUBY_PLATFORM 
+    puts RUBY_RELEASE_DATE
+EOF
+endfunction
+
+rubyfile /Users/max/.vim/vim.rb
