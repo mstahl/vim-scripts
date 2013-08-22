@@ -244,4 +244,4 @@ function! RubyInfo()
 EOF
 endfunction
 
-rubyfile /Users/max/.vim/vim.rb
+rubyfile $HOME/.vim/vim.rb
