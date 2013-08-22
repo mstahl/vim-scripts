@@ -227,7 +227,7 @@ vmap ,ww :s/\s*$//<CR>
 " Open a ConqueTerm
 nmap ,tv :ConqueTermVSplit bash -l<CR>
 nmap ,ts :ConqueTermSplit bash -l<CR>
-nmap ,H  :ruby headerify()<CR>
+nmap <C-h> :ruby headerify()<CR>
 imap <C-h> <esc>:ruby headerify()<CR>o
 
 " MOAR AUTOCOMMANDS
