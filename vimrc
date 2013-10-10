@@ -229,6 +229,10 @@ nmap ,tv :ConqueTermVSplit bash -l<CR>
 nmap ,ts :ConqueTermSplit bash -l<CR>
 nmap <C-h> :ruby headerify()<CR>
 imap <C-h> <esc>:ruby headerify()<CR>o
+" Open markdown preview
+autocmd FileType markdown imap <C-p> :Hammer<CR>
+autocmd FileType markdown vmap <C-p> :Hammer<CR>
+autocmd FileType markdown nmap <C-p> :Hammer<CR>
 
 " MOAR AUTOCOMMANDS
 
