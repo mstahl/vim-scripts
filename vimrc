@@ -9,6 +9,7 @@ set shell=bash
 
 " Enable filetype-specific indenting, syntax, and plugins
 filetype plugin indent on
+filetype plugin on
 set nocompatible
 syntax on
 
@@ -216,6 +217,9 @@ set list
 " Default to case-insensitive search
 set smartcase
 
+" Allow backspacing over EOL and start of insert
+set backspace=eol,start,indent
+
 " My extra special key macros ================================================
 
 function! Headerify()
@@ -230,9 +234,9 @@ nmap ,ts :ConqueTermSplit bash -l<CR>
 nmap <C-h> :ruby headerify()<CR>
 imap <C-h> <esc>:ruby headerify()<CR>o
 " Open markdown preview
-autocmd FileType markdown imap <C-p> :Hammer<CR>
-autocmd FileType markdown vmap <C-p> :Hammer<CR>
-autocmd FileType markdown nmap <C-p> :Hammer<CR>
+autocmd FileType markdown imap <C-p> <ESC>:Hammer<CR>
+autocmd FileType markdown vmap <C-p> <ESC>:Hammer<CR>
+autocmd FileType markdown nmap <C-p> <ESC>:Hammer<CR>
 
 " MOAR AUTOCOMMANDS
 
