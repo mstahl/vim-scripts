@@ -237,6 +237,8 @@ imap <C-h> <esc>:ruby headerify()<CR>o
 autocmd FileType markdown imap <C-p> <ESC>:Hammer<CR>
 autocmd FileType markdown vmap <C-p> <ESC>:Hammer<CR>
 autocmd FileType markdown nmap <C-p> <ESC>:Hammer<CR>
+" Set spellchecking for markdown files
+autocmd FileType markdown setlocal spell spelllang=en_us
 
 " MOAR AUTOCOMMANDS
 
@@ -253,3 +255,5 @@ EOF
 endfunction
 
 rubyfile $HOME/.vim/vim.rb
+
+imap <C-l> <ESC>:Loremipsum<CR>i

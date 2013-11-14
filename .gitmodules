@@ -94,3 +94,9 @@
 [submodule "bundle/vim-instant-markdown"]
 	path = bundle/vim-instant-markdown
 	url = https://github.com/suan/vim-instant-markdown.git
+[submodule "bundle/vim-eregex"]
+	path = bundle/vim-eregex
+	url = https://github.com/othree/eregex.vim.git
+[submodule "bundle/vim-tidyup"]
+	path = bundle/vim-tidyup
+	url = https://github.com/mstahl/vim-tidy-up.git
