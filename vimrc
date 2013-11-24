@@ -254,6 +254,13 @@ function! RubyInfo()
 EOF
 endfunction
 
+function! MarkdownConvert()
+  s%<br />%\r%
+  S@<span style="font-style: italic;">(.*?)</span>@_\1_@
+  " Need to have a cleanup for bold spans here, wordpress style
+  S@<span[^>]*?>(.*?)</span>@\1@
+endfunction
+
 rubyfile $HOME/.vim/vim.rb
 
 imap <C-l> <ESC>:Loremipsum<CR>i
