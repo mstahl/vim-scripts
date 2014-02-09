@@ -4,13 +4,7 @@ Clone this if you want. Based in part on @sarah's eerily similar github repo.
 
 ## Installation
 
-    cd ~
-    rm -fr .vim # Remember to back this up if you have important stuff in it!
-    git clone git@github.com:mstahl/vim-scripts.git .vim
-    ln -s ~/.vim/vimrc ~/.vimrc
-    cd .vim
-    git submodule init   # Pathogen plugins installed as submodules
-    git submodule update # Don't forget to update them!
+    curl 'https://raw.github.com/mstahl/vim-scripts/master/setup.sh' | bash -l
 
 And that's it.
 
