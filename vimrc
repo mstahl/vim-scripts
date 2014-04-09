@@ -264,3 +264,6 @@ endfunction
 rubyfile $HOME/.vim/vim.rb
 
 imap <C-l> <ESC>:Loremipsum<CR>i
+
+nmap q <ESC>
+vmap q <ESC>
