@@ -267,3 +267,6 @@ imap <C-l> <ESC>:Loremipsum<CR>i
 
 nmap q <ESC>
 vmap q <ESC>
+
+" Powerline support
+set rtp+=~/src/powerline/powerline/bindings/vim
