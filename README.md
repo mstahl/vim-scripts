@@ -4,7 +4,7 @@ Clone this if you want. Based in part on @sarah's eerily similar github repo.
 
 ## Installation
 
-    curl 'https://raw.github.com/mstahl/vim-scripts/master/setup.sh' | bash -l
+    curl 'https://raw.githubusercontent.com/mstahl/vim-scripts/master/setup.sh' | bash -l
 
 And that's it.
 
