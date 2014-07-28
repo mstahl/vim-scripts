@@ -30,7 +30,7 @@ if has("gui_running")
 else
   colorscheme twilight
 endif
-set background=dark
+set background=light
 
 " TEXT SETTINGS
 
