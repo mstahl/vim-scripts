@@ -1,5 +1,35 @@
-" Enable pathogen
-call pathogen#runtime_append_all_bundles()
+""" Vundle stuff
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'tpope/vim-markdown'
+Plugin 'Shougo/neocomplcache'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'OOP-javascript-indentation'
+Plugin 'ervandew/supertab'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-cucumber'
+Plugin 'othree/eregex.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-unimpaired'
+
+call vundle#end()
+filetype plugin indent on
 
 " UTF-8 All the way
 scriptencoding utf-8
@@ -7,19 +37,13 @@ scriptencoding utf-8
 " Use bash.
 set shell=bash
 
-" Enable filetype-specific indenting, syntax, and plugins
-filetype plugin indent on
-filetype plugin on
 set nocompatible
 syntax on
-
-" Disable bell.
-set vb t_vb=
 
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" COLOR SUPPORT
+""" COLOR SUPPORT
 
 " Explicitly set 256 color support
 " set t_Co=256
@@ -32,7 +56,7 @@ else
 endif
 set background=light
 
-" TEXT SETTINGS
+""" TEXT SETTINGS
 
 " Disable line wrapping
 set nowrap
@@ -44,15 +68,14 @@ set softtabstop=2
 set shiftwidth=2
 
 " line numbers
-set number 
+set number
 set numberwidth=3
 
-
-" KEY BINDINGS
+""" KEY BINDINGS
 
 let mapleader = ","
 
-" WINDOW SPLITTING
+""" WINDOW SPLITTING
 
 " Open new horizontal split windows below current
 set splitbelow
@@ -60,14 +83,13 @@ set splitbelow
 " Open new vertical split windows to the right
 set splitright
 
-
 " Set temporary directory (don't litter local dir with swp/tmp files)
 set directory=/tmp/
 
 " Use the tab complete menu
 set wildmenu
 
-" KEYBINDINGS
+""" KEYBINDINGS
 
 " Quick, jump out of insert mode while no one is looking
 " imap ii <Esc>
@@ -75,8 +97,7 @@ set wildmenu
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
-
-" CUSTOM PLUGINS
+""" CUSTOM PLUGINS
 
 " FuzzyFinder Path Splitting (ala textmate)
 let g:fuf_splitPathMatching = 1
@@ -85,7 +106,7 @@ let g:fuf_splitPathMatching = 1
 let g:fuf_infoFile = '~/.vim-fuf'
 let g:fuf_learningLimit = 500
 
-" CUSTOM FUNCTIONS
+""" CUSTOM FUNCTIONS
 
 " Add RebuildTagsFile function/command
 function! s:RebuildTagsFile()
@@ -93,8 +114,7 @@ function! s:RebuildTagsFile()
 endfunction
 command! -nargs=0 RebuildTagsFile call s:RebuildTagsFile()
 
-
-" STATUS BAR CONFIG
+""" STATUS BAR CONFIG
 
 set laststatus=2
 set statusline=\ "
@@ -106,8 +126,7 @@ set statusline+=%h%1*%m%r%w%0* " flag
 set statusline+=%= " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
-
-" NERDTree CONFIGURATION
+""" NERDTree CONFIGURATION
 
 " Enable nice colors
 let NERDChristmasTree = 1
@@ -128,8 +147,7 @@ let NERDTreeIgnore=['\.$', '\~$', '\.DS_Store']
 " Make F2 open NERDTree
 nmap <F2> :NERDTreeToggle<CR>
 
-
-" Search Config
+""" Search Config
 
 " show the `best match so far' as search strings are typed:
 set incsearch
