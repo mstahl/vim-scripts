@@ -109,3 +109,9 @@
 [submodule "bundle/haskellmode-vim"]
 	path = bundle/haskellmode-vim
 	url = https://github.com/lukerandall/haskellmode-vim.git
+[submodule "syntax/Dockerfile.vim"]
+	path = syntax/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "syntax/rust.vim"]
+	path = syntax/rust.vim
+	url = https://github.com/wting/rust.vim.git
