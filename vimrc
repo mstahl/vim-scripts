@@ -27,6 +27,11 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'vim-scripts/openscad.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -287,4 +292,5 @@ nmap q <ESC>
 vmap q <ESC>
 
 " Powerline support
-set rtp+=~/src/powerline/powerline/bindings/vim
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2
