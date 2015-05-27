@@ -19,7 +19,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-cucumber'
 Plugin 'othree/eregex.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'jnwhiteh/vim-golang'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 Plugin 'tpope/vim-rails'
@@ -234,8 +233,8 @@ augroup SpicyAutoCommands
   " autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 augroup END
 
-" Show invisibles"
-set list
+" Don't show invisibles"
+set nolist
 
 " Default to case-insensitive search
 set smartcase
@@ -251,15 +250,6 @@ endfunction
 
 " Remove trailing whitespace
 vmap ,ww :s/\s*$//<CR>
-" Open a ConqueTerm
-nmap ,tv :ConqueTermVSplit bash -l<CR>
-nmap ,ts :ConqueTermSplit bash -l<CR>
-nmap <C-h> :ruby headerify()<CR>
-imap <C-h> <esc>:ruby headerify()<CR>o
-" Open markdown preview
-autocmd FileType markdown imap <C-p> <ESC>:Hammer<CR>
-autocmd FileType markdown vmap <C-p> <ESC>:Hammer<CR>
-autocmd FileType markdown nmap <C-p> <ESC>:Hammer<CR>
 " Set spellchecking for markdown files
 autocmd FileType markdown setlocal spell spelllang=en_us
 
@@ -294,3 +284,6 @@ vmap q <ESC>
 " Powerline support
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2
+
+" Golang support
+let g:go_fmt_autosave = 0
