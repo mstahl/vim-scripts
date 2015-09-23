@@ -282,8 +282,10 @@ nmap q <ESC>
 vmap q <ESC>
 
 " Powerline support
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-set laststatus=2
+if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+  set laststatus=2
+endif
 
 " Golang support
 let g:go_fmt_autosave = 0
