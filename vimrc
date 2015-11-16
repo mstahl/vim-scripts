@@ -9,37 +9,43 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'FuzzyFinder'
 Plugin 'L9'
-Plugin 'tpope/vim-markdown'
-Plugin 'Shougo/neocomplcache'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'OOP-javascript-indentation'
-Plugin 'ervandew/supertab'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-cucumber'
-Plugin 'othree/eregex.vim'
+Plugin 'Shougo/neocomplcache'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'vim-scripts/openscad.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'ck3g/vim-change-hash-syntax'
+Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'ingydotnet/yaml-vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'othree/eregex.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/openscad.vim'
 
 call vundle#end()
+
+" Stuff for vim-textobj-rubyblock
+runtime macros/matchit.vim
+set nocompatible
+if has("autocmd")
+  filetype indent plugin on
+endif
+
 filetype plugin indent on
 
 " UTF-8 All the way
 scriptencoding utf-8
 
-" Use bash.
-set shell=bash
+" Use zsh.
+set shell=zsh
 
 set nocompatible
 syntax on
@@ -130,27 +136,6 @@ set statusline+=%h%1*%m%r%w%0* " flag
 set statusline+=%= " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
-""" NERDTree CONFIGURATION
-
-" Enable nice colors
-let NERDChristmasTree = 1
-
-" Make it easy to see where we are
-let NERDTreeHighlightCursorline = 1
-
-" Make bookmarks visible
-let NERDTreeShowBookmarks = 1
-
-" Show hidden files
-let NERDTreeShowHidden = 1
-
-" Don't hijack NETRW
-let NERDTreeHijackNetrw = 0
-let NERDTreeIgnore=['\.$', '\~$', '\.DS_Store']
-
-" Make F2 open NERDTree
-nmap <F2> :NERDTreeToggle<CR>
-
 """ Search Config
 
 " show the `best match so far' as search strings are typed:
@@ -171,28 +156,6 @@ let ruby_operators = 1
 " Turn off rails bits of statusbar
 let g:rails_statusline=0
 
-" Clojure config
-
-" Enable gorilla for the lisp on the jvm
-let clj_want_gorilla = 0
-
-" Highlight built-in clojure functions
-let g:clj_highlight_builtins = 1
-
-" Also highlight contrib
-let g:clj_highlight_contrib = 1
-
-" Paren Rainbow (diff colors for diff nestings)
-let g:clj_paren_rainbow = 1
-
-" Auto added used namespaces, generally be awesome
-let g:clj_dynamic_highlighting = 1
-
-" ConqueTerm
-let g:ConqueTerm_CWInsert      = 1
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CloseOnEnd    = 1
-
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
@@ -201,10 +164,6 @@ let g:NERDCustomDelimiters = {
   \'haskell': {'left': '--', 'leftAlt': '{-', 'rightAlt': '-}'},
   \'spice': {'left': '*'}
 \}
-
-" NeoComplCache
-" let g:NeoComplCache_EnableAtStartup=1
-
 
 " AUTOCOMMANDS
 
@@ -275,8 +234,6 @@ function! MarkdownConvert()
 endfunction
 
 rubyfile $HOME/.vim/vim.rb
-
-imap <C-l> <ESC>:Loremipsum<CR>i
 
 nmap q <ESC>
 vmap q <ESC>
