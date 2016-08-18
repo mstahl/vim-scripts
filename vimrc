@@ -15,11 +15,13 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ck3g/vim-change-hash-syntax'
+Plugin 'danchoi/ruby_bashrockets.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'othree/eregex.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -237,6 +239,10 @@ rubyfile $HOME/.vim/vim.rb
 
 nmap q <ESC>
 vmap q <ESC>
+
+" Keyboard mappings for Ruby hash conversion
+vmap ,ch :Bashrocket<CR>
+nmap ,ch :Bashrocket<CR>
 
 " Powerline support
 if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
