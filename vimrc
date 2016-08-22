@@ -9,27 +9,35 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'FuzzyFinder'
 Plugin 'L9'
-Plugin 'tpope/vim-markdown'
-Plugin 'Shougo/neocomplcache'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'OOP-javascript-indentation'
-Plugin 'ervandew/supertab'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-cucumber'
-Plugin 'othree/eregex.vim'
+Plugin 'Shougo/neocomplcache'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ervandew/supertab'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mxw/vim-jsx'
+Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'othree/eregex.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Syntax highlighting
+Plugin 'openscad.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+""" My settings
 
 " UTF-8 All the way
 scriptencoding utf-8
@@ -229,8 +237,8 @@ augroup SpicyAutoCommands
   " autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 augroup END
 
-" Show invisibles"
-set list
+" Don't show invisibles"
+set nolist
 
 " Default to case-insensitive search
 set smartcase
@@ -279,7 +287,7 @@ function! MarkdownConvert()
   S@<span[^>]*?>(.*?)</span>@\1@
 endfunction
 
-rubyfile $HOME/.vim/vim.rb
+" rubyfile $HOME/.vim/vim.rb
 
 imap <C-l> <ESC>:Loremipsum<CR>i
 

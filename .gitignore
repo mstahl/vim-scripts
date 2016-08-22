@@ -2,3 +2,4 @@
 .Apple*
 .netrwhist
 tags
+bundle/*
