@@ -14,27 +14,37 @@ Plugin 'Shougo/neocomplcache'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ck3g/vim-change-hash-syntax'
+Plugin 'danchoi/ruby_bashrockets.vim'
 Plugin 'ervandew/supertab'
+Plugin 'fatih/vim-go'
+Plugin 'ingydotnet/yaml-vim'
 Plugin 'jnwhiteh/vim-golang'
+Plugin 'kana/vim-textobj-user'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
-Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'othree/eregex.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-" Syntax highlighting
-Plugin 'openscad.vim'
+Plugin 'vim-scripts/openscad.vim'
 
 call vundle#end()
+
+" Stuff for vim-textobj-rubyblock
+runtime macros/matchit.vim
+set nocompatible
+if has("autocmd")
+  filetype indent plugin on
+endif
+
 filetype plugin indent on
 
 """ My settings
@@ -42,8 +52,8 @@ filetype plugin indent on
 " UTF-8 All the way
 scriptencoding utf-8
 
-" Use bash.
-set shell=bash
+" Use zsh.
+set shell=zsh
 
 set nocompatible
 syntax on
@@ -134,27 +144,6 @@ set statusline+=%h%1*%m%r%w%0* " flag
 set statusline+=%= " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
-""" NERDTree CONFIGURATION
-
-" Enable nice colors
-let NERDChristmasTree = 1
-
-" Make it easy to see where we are
-let NERDTreeHighlightCursorline = 1
-
-" Make bookmarks visible
-let NERDTreeShowBookmarks = 1
-
-" Show hidden files
-let NERDTreeShowHidden = 1
-
-" Don't hijack NETRW
-let NERDTreeHijackNetrw = 0
-let NERDTreeIgnore=['\.$', '\~$', '\.DS_Store']
-
-" Make F2 open NERDTree
-nmap <F2> :NERDTreeToggle<CR>
-
 """ Search Config
 
 " show the `best match so far' as search strings are typed:
@@ -175,28 +164,6 @@ let ruby_operators = 1
 " Turn off rails bits of statusbar
 let g:rails_statusline=0
 
-" Clojure config
-
-" Enable gorilla for the lisp on the jvm
-let clj_want_gorilla = 0
-
-" Highlight built-in clojure functions
-let g:clj_highlight_builtins = 1
-
-" Also highlight contrib
-let g:clj_highlight_contrib = 1
-
-" Paren Rainbow (diff colors for diff nestings)
-let g:clj_paren_rainbow = 1
-
-" Auto added used namespaces, generally be awesome
-let g:clj_dynamic_highlighting = 1
-
-" ConqueTerm
-let g:ConqueTerm_CWInsert      = 1
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CloseOnEnd    = 1
-
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDRemoveExtraSpaces = 1
@@ -205,10 +172,6 @@ let g:NERDCustomDelimiters = {
   \'haskell': {'left': '--', 'leftAlt': '{-', 'rightAlt': '-}'},
   \'spice': {'left': '*'}
 \}
-
-" NeoComplCache
-" let g:NeoComplCache_EnableAtStartup=1
-
 
 " AUTOCOMMANDS
 
@@ -254,15 +217,6 @@ endfunction
 
 " Remove trailing whitespace
 vmap ,ww :s/\s*$//<CR>
-" Open a ConqueTerm
-nmap ,tv :ConqueTermVSplit bash -l<CR>
-nmap ,ts :ConqueTermSplit bash -l<CR>
-nmap <C-h> :ruby headerify()<CR>
-imap <C-h> <esc>:ruby headerify()<CR>o
-" Open markdown preview
-autocmd FileType markdown imap <C-p> <ESC>:Hammer<CR>
-autocmd FileType markdown vmap <C-p> <ESC>:Hammer<CR>
-autocmd FileType markdown nmap <C-p> <ESC>:Hammer<CR>
 " Set spellchecking for markdown files
 autocmd FileType markdown setlocal spell spelllang=en_us
 
@@ -289,10 +243,25 @@ endfunction
 
 " rubyfile $HOME/.vim/vim.rb
 
-imap <C-l> <ESC>:Loremipsum<CR>i
-
 nmap q <ESC>
 vmap q <ESC>
 
+" Keyboard mappings for Ruby hash conversion
+vmap ,ch :Bashrocket<CR>
+nmap ,ch :Bashrocket<CR>
+
 " Powerline support
-set rtp+=~/src/powerline/powerline/bindings/vim
+if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+  set laststatus=2
+endif
+
+" Golang support
+let g:go_fmt_autosave = 0
+
+" Spellcheck magic (regenerates spellcheck files on-the-fly)
+for d in glob('~/.vim/spell/*.add', 1, 1)
+  if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
+    exec 'mkspell! ' . fnameescape(d)
+  endif
+endfor
