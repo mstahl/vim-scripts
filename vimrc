@@ -9,7 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'FuzzyFinder'
 Plugin 'L9'
-Plugin 'OOP-javascript-indentation'
 Plugin 'Shougo/neocomplcache'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -24,7 +23,8 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
+Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'othree/eregex.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -236,13 +236,6 @@ function! RubyInfo()
 EOF
 endfunction
 
-function! MarkdownConvert()
-  s%<br />%\r%
-  S@<span style="font-style: italic;">(.*?)</span>@_\1_@
-  " Need to have a cleanup for bold spans here, wordpress style
-  S@<span[^>]*?>(.*?)</span>@\1@
-endfunction
-
 " rubyfile $HOME/.vim/vim.rb
 
 nmap q <ESC>
@@ -267,3 +260,6 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
     exec 'mkspell! ' . fnameescape(d)
   endif
 endfor
+
+" Make 1 space instead of 2 after periods while wrapping lines
+set nojoinspaces
